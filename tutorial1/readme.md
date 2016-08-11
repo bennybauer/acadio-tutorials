@@ -103,7 +103,7 @@ The above step results in the following response. Copy the Id field.
 In this scenario we will query the status of your workitem. **This is NOT recommended in production scenarios**. You would normally provide a callback URL to the service to notify you when the workitem concludes. Subsequent tutorial will demonstrate how to do this.
 Execute the following command to query the status of your workitem. 
 ```
-curl https://developer.api.autodesk.com/autocad.io/us-east/v2/WorkItems('<your workitem id>')/Status -H "Authorization: Bearer <your token>"
+curl "https://developer.api.autodesk.com/autocad.io/us-east/v2/WorkItems('<your workitem id>')/Status" -H "Authorization: Bearer <your token>"
 ```
 The response from the above request is the following. 
 ```
@@ -116,7 +116,7 @@ At this point you can go to your storage account and see the generated PDF file 
 ## Step 7: Get the workitem report
 Query the workitem object to obtain the “StatusDetails”
 ```
-curl https://developer.api.autodesk.com/autocad.io/us-east/v2/WorkItems('<your workitem id>') -H "Authorization: Bearer <your token>"
+curl "https://developer.api.autodesk.com/autocad.io/us-east/v2/WorkItems('<your workitem id>')" -H "Authorization: Bearer <your token>"
 ```
 The response you get will have the same structure as in Step 5.3. Find the StatusDetails object in the response and locate its Report attribute. It should be a longish URL by now (if status is no longer Pending). Then issue a GET requests on the URL:
 ```
